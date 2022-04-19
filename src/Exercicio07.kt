@@ -6,36 +6,59 @@ Obs: use vetores para a resolução do exercício
 
 fun main() {
     quantidadeAlunos()
+
+
 }
 
 fun quantidadeAlunos() {
     println("Informe a quantidade de alunos: ")
     val nAlunos = readln().toDouble()
     val qtddAlunos = DoubleArray(nAlunos.toInt())
-    notasAlunos(qtddAlunos)
+
+    nomeAlunos(qtddAlunos)
+
+
 }
 
-fun notasAlunos(qtddAlunos: DoubleArray) {
+fun nomeAlunos(qtddAlunos: DoubleArray) {
 
-    qtddAlunos.forEachIndexed { index, notas ->
-        println("Informe a nota do ${(index + 1)} aluno")
-        qtddAlunos[index] = readln().toDouble()
+    qtddAlunos.forEachIndexed { index, nome ->
+        println("Informe o nome do ${(index + 1)} º aluno")
+        var nome = readln()
+
+        var nomeAlunos1 = arrayOf<String>(nome)
+        notasAlunos(nomeAlunos1)
     }
-    mediaAlunos(qtddAlunos)
+}
+
+fun notasAlunos(nomeAlunos1: Array<String>) {
+    val notasA = DoubleArray(3)
+
+    nomeAlunos1.forEachIndexed { index, notas ->
+
+        println("Informe a 1ª nota do ${nomeAlunos1[index]} aluno")
+        notasA[index] = readln().toDouble()
+        println("Informe a 2ª nota do ${nomeAlunos1[index]} aluno")
+        notasA[index] = readln().toDouble()
+        println("Informe a 3ª nota do ${nomeAlunos1[index]} aluno")
+        notasA[index] = readln().toDouble()
+        mediaAlunos(notasA, nomeAlunos1)
+
+    }
 
 }
 
-fun mediaAlunos(qtddAlunos: DoubleArray): Double {
-
+fun mediaAlunos(notasA: DoubleArray, nomeAlunos1: Array<String>): Double {
     var soma = 0.0
     var media = 0.0
 
-    qtddAlunos.forEachIndexed { index, notas ->
-        soma += qtddAlunos[index]
-        media = soma/ qtddAlunos.size
+    notasA.forEachIndexed { i, notas ->
+        soma += notasA[i] + notasA[i] + notasA[i]
+        media = soma / notasA.size
     }
-    println(media)
+    println("A média do aluno ${nomeAlunos1[0]} é = $media")
     return media
-
-
 }
+
+
+
