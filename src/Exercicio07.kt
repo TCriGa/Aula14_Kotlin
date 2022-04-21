@@ -6,8 +6,6 @@ Obs: use vetores para a resolução do exercício
 
 fun main() {
     quantidadeAlunos()
-
-
 }
 
 fun quantidadeAlunos() {
@@ -22,7 +20,7 @@ fun quantidadeAlunos() {
 
 fun nomeAlunos(qtddAlunos: DoubleArray) {
 
-    qtddAlunos.forEachIndexed { index, nome ->
+    qtddAlunos.forEachIndexed { index, _ ->
         println("Informe o nome do ${(index + 1)} º aluno")
         var nome = readln()
 
@@ -34,7 +32,7 @@ fun nomeAlunos(qtddAlunos: DoubleArray) {
 fun notasAlunos(nomeAlunos1: Array<String>) {
     val notasA = DoubleArray(3)
 
-    nomeAlunos1.forEachIndexed { index, notas ->
+    nomeAlunos1.forEachIndexed { index, _ ->
 
         println("Informe a 1ª nota do ${nomeAlunos1[index]} aluno")
         notasA[index] = readln().toDouble()
@@ -42,9 +40,10 @@ fun notasAlunos(nomeAlunos1: Array<String>) {
         notasA[index] = readln().toDouble()
         println("Informe a 3ª nota do ${nomeAlunos1[index]} aluno")
         notasA[index] = readln().toDouble()
-        mediaAlunos(notasA, nomeAlunos1)
+
 
     }
+    mediaAlunos(notasA, nomeAlunos1)
 
 }
 
@@ -52,7 +51,7 @@ fun mediaAlunos(notasA: DoubleArray, nomeAlunos1: Array<String>): Double {
     var soma = 0.0
     var media = 0.0
 
-    notasA.forEachIndexed { i, notas ->
+    notasA.forEachIndexed { i,_ ->
         soma += notasA[i] + notasA[i] + notasA[i]
         media = soma / notasA.size
     }
